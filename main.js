@@ -40,7 +40,7 @@ document.querySelectorAll('.add-cart-btn').forEach(btn => {
   });
 });
 
-// ===== Load Cart Page =====
+// ===== Cart Page =====
 const cartTableBody = document.querySelector('#cart-table tbody');
 const grandTotalElem = document.getElementById('grand-total');
 
@@ -70,7 +70,7 @@ function loadCart() {
 
 loadCart();
 
-// ===== Cart Quantity & Remove =====
+// ===== Quantity & Remove Buttons =====
 if (cartTableBody) {
   cartTableBody.addEventListener('input', e => {
     if (e.target.classList.contains('qty')) {
@@ -98,12 +98,40 @@ if (cartTableBody) {
   });
 }
 
-// ===== Checkout Form =====
+// ===== Checkout Page Sync =====
+const subtotalElem = document.getElementById('subtotal');
+const taxElem = document.getElementById('tax');
+const totalElem = document.getElementById('total');
+
+function loadCheckout() {
+  if (!subtotalElem || !taxElem || !totalElem) return;
+
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let subtotal = 0;
+
+  cart.forEach(item => {
+    subtotal += item.price * item.qty;
+  });
+
+  subtotalElem.innerText = subtotal;
+
+  let tax = 0; // intentional bug for QA
+  taxElem.innerText = tax;
+
+  let total = subtotal + tax;
+  totalElem.innerText = total;
+}
+
+loadCheckout();
+
+// ===== Checkout Form Submit =====
 const checkoutForm = document.getElementById('checkout-form');
 if (checkoutForm) {
   checkoutForm.addEventListener('submit', e => {
     e.preventDefault();
-    alert('Payment processed! (tax bug intentional: tax always 0)');
+    alert('Payment processed! (tax bug intentional)');
     localStorage.removeItem('cart'); // clear cart after checkout
+    loadCheckout();
+    loadCart();
   });
 }
