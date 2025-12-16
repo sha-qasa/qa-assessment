@@ -1,50 +1,159 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+/* General */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffe4e6; /* light pink */
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
 
-\f0\fs24 \cf0 body \{\
-  font-family: Arial, sans-serif;\
-  background: #ffe4e6; /* light pink */\
-  margin: 0;\
-  padding: 0;\
-\}\
-\
-header \{\
-  background: #ff6f91;\
-  color: white;\
-  padding: 15px;\
-\}\
-\
-nav a \{\
-  color: white;\
-  margin-right: 15px;\
-  text-decoration: none;\
-\}\
-\
-.product-card \{\
-  border: 1px solid #ddd;\
-  padding: 10px;\
-  margin: 10px;\
-  background: #fff;\
-\}\
-\
-button \{\
-  margin-top: 5px;\
-\}\
-\
-/* Carousel */\
-.carousel \{\
-  display: flex;\
-  overflow: hidden;\
-  width: 100%;\
-  max-width: 600px;\
-  margin: 20px auto;\
-\}\
-.carousel-img \{\
-  min-width: 100%;\
-  transition: transform 0.5s;\
-\}\
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+header {
+  background: #ff6f91;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ffd6dc;
+}
+
+/* Carousel */
+.carousel {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.carousel-img {
+  width: 100%;
+  display: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-img.active {
+  display: block;
+}
+
+/* Product List */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card h3 {
+  margin: 0 0 10px 0;
+}
+
+.product-card p {
+  margin: 5px 0;
+}
+
+/* Buttons */
+button {
+  background: #ff6f91;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #ff4d70;
+}
+
+/* Expand extra info */
+.extra-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Cart & Checkout Table */
+table {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+th {
+  background: #ff6f91;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background: #ffe4e6;
+}
+
+input.qty {
+  width: 50px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+/* Checkout Form */
+#checkout-form {
+  width: 90%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#checkout-form p {
+  font-size: 16px;
+  margin-bottom: 10px;
 }
