@@ -115,7 +115,7 @@ function loadCheckout() {
 
   subtotalElem.innerText = subtotal;
 
-  let tax = 0; // intentional bug for QA
+  let tax = 0; 
   taxElem.innerText = tax;
 
   let total = subtotal + tax;
@@ -129,7 +129,7 @@ const checkoutForm = document.getElementById('checkout-form');
 if (checkoutForm) {
   checkoutForm.addEventListener('submit', e => {
     e.preventDefault();
-    alert('Payment processed! (tax bug intentional)');
+    alert('Payment processed!');
     localStorage.removeItem('cart'); // clear cart after checkout
     loadCheckout();
     loadCart();
