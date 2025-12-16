@@ -1,4 +1,4 @@
-/* General */
+/* ===== General ===== */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #ffe4e6; /* light pink */
@@ -12,7 +12,7 @@ a {
   color: inherit;
 }
 
-/* Header */
+/* ===== Header & Nav ===== */
 header {
   background: #ff6f91;
   color: white;
@@ -28,7 +28,6 @@ header h1 {
 }
 
 nav a {
-  color: white;
   margin-left: 20px;
   font-weight: 500;
   transition: color 0.3s;
@@ -38,7 +37,7 @@ nav a:hover {
   color: #ffd6dc;
 }
 
-/* Carousel */
+/* ===== Carousel ===== */
 .carousel {
   width: 90%;
   max-width: 800px;
@@ -59,7 +58,7 @@ nav a:hover {
   display: block;
 }
 
-/* Product List */
+/* ===== Featured Products / Product List ===== */
 .product-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -85,7 +84,7 @@ nav a:hover {
   margin: 5px 0;
 }
 
-/* Buttons */
+/* ===== Buttons ===== */
 button {
   background: #ff6f91;
   color: white;
@@ -101,15 +100,15 @@ button:hover {
   background: #ff4d70;
 }
 
-/* Expand extra info */
+/* ===== Expand / Extra Info ===== */
 .extra-info {
   margin-top: 10px;
   font-size: 14px;
   color: #555;
 }
 
-/* Cart & Checkout Table */
-table {
+/* ===== Cart Table ===== */
+.cart-section table {
   width: 90%;
   max-width: 800px;
   margin: 20px auto;
@@ -142,8 +141,8 @@ input.qty {
   text-align: center;
 }
 
-/* Checkout Form */
-#checkout-form {
+/* ===== Checkout Form ===== */
+.checkout-section, .cart-section {
   width: 90%;
   max-width: 500px;
   margin: 20px auto;
@@ -153,7 +152,27 @@ input.qty {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-#checkout-form p {
+.checkout-section p, .cart-section p {
   font-size: 16px;
   margin-bottom: 10px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-section table, .checkout-section {
+    width: 100%;
+  }
 }
