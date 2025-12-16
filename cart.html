@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cart</title>
+<title>QA Demo Store - Cart</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- Header -->
 <header>
   <h1>Cart</h1>
   <nav>
@@ -17,39 +19,39 @@
   </nav>
 </header>
 
-<table id="cart-table">
-  <tr>
-    <th>Product</th>
-    <th>Price</th>
-    <th>Qty</th>
-    <th>Total</th>
-  </tr>
-  <tr>
-    <td>Product 1</td>
-    <td class="price">10</td>
-    <td><input type="number" class="qty" value="2"></td>
-    <td class="total">25</td> <!-- Intentional bug, should be 20 -->
-  </tr> <tr>
-    <td>Product 2</td>
-    <td class="price">10</td>
-    <td><input type="number" class="qty" value="2"></td>
-    <td class="total">25</td> <!-- Intentional bug, should be 20 -->
-  </tr> <tr>
-    <td>Product 3</td>
-    <td class="price">10</td>
-    <td><input type="number" class="qty" value="2"></td>
-    <td class="total">25</td> <!-- Intentional bug, should be 20 -->
-  </tr> <tr>
-    <td>Product 4</td>
-    <td class="price">10</td>
-    <td><input type="number" class="qty" value="2"></td>
-    <td class="total">25</td> <!-- Intentional bug, should be 20 -->
-  </tr>
-</table>
+<!-- Cart Table -->
+<section class="cart-section">
+  <table id="cart-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price (RM)</th>
+        <th>Qty</th>
+        <th>Total (RM)</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Product A</td>
+        <td class="price">15</td>
+        <td><input type="number" class="qty" value="2" min="1"></td>
+        <td class="total">40</td> <!-- Intentional bug: should be 30 -->
+        <td><button class="remove-btn">Remove</button></td>
+      </tr>
+      <tr>
+        <td>Product B</td>
+        <td class="price">25</td>
+        <td><input type="number" class="qty" value="1" min="1"></td>
+        <td class="total">30</td> <!-- Intentional bug: should be 25 -->
+        <td><button class="remove-btn">Remove</button></td>
+      </tr>
+    </tbody>
+  </table>
 
-<p>Grand Total: <span id="grand-total">25</span></p>
+  <p class="grand-total">Grand Total: RM <span id="grand-total">70</span></p>
+</section>
 
 <script src="main.js"></script>
 </body>
 </html>
-}
