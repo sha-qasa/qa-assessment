@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout</title>
+<title>QA Demo Store - Checkout</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- Header -->
 <header>
   <h1>Checkout</h1>
   <nav>
@@ -16,14 +18,17 @@
     <a href="checkout.html">Checkout</a>
   </nav>
 </header>
-<form id="checkout-form">
-  <p>Subtotal: <span id="subtotal">50</span></p>
-  <p>Tax (10%): <span id="tax">0</span></p> <!-- Bug: Tax always zero -->
-  <p>Total: <span id="total">50</span></p>
-  <button type="submit">Pay</button>
-</form>
+
+<!-- Checkout Form -->
+<section class="checkout-section">
+  <form id="checkout-form">
+    <p>Subtotal: RM <span id="subtotal">70</span></p>
+    <p>Tax (10%): RM <span id="tax">0</span> <!-- Intentional bug: should be 7 --></p>
+    <p>Total: RM <span id="total">70</span></p>
+    <button type="submit">Pay Now</button>
+  </form>
+</section>
 
 <script src="main.js"></script>
 </body>
 </html>
-}
