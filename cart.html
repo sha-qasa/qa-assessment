@@ -1,40 +1,55 @@
-<!DOCTYPE html>\
-<html lang="en">\
-<head>\
-<meta charset="UTF-8">\
-<meta name="viewport" content="width=device-width, initial-scale=1.0">\
-<title>Cart</title>\
-<link rel="stylesheet" href="style.css">\
-</head>\
-<body>\
-<header>\
-  <h1>Cart</h1>\
-  <nav>\
-    <a href="index.html">Home</a>\
-    <a href="product.html">Products</a>\
-    <a href="cart.html">Cart</a>\
-    <a href="checkout.html">Checkout</a>\
-  </nav>\
-</header>\
-\
-<table id="cart-table">\
-  <tr>\
-    <th>Product</th>\
-    <th>Price</th>\
-    <th>Qty</th>\
-    <th>Total</th>\
-  </tr>\
-  <tr>\
-    <td>Product 1</td>\
-    <td class="price">10</td>\
-    <td><input type="number" class="qty" value="2"></td>\
-    <td class="total">25</td> <!-- Intentional bug, should be 20 -->\
-  </tr>\
-</table>\
-\
-<p>Grand Total: <span id="grand-total">25</span></p>\
-\
-<script src="main.js"></script>\
-</body>\
-</html>\
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Cart</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="product.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <a href="checkout.html">Checkout</a>
+  </nav>
+</header>
+
+<table id="cart-table">
+  <tr>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Qty</th>
+    <th>Total</th>
+  </tr>
+  <tr>
+    <td>Product 1</td>
+    <td class="price">10</td>
+    <td><input type="number" class="qty" value="2"></td>
+    <td class="total">25</td> <!-- Intentional bug, should be 20 -->
+  </tr> <tr>
+    <td>Product 2</td>
+    <td class="price">10</td>
+    <td><input type="number" class="qty" value="2"></td>
+    <td class="total">25</td> <!-- Intentional bug, should be 20 -->
+  </tr> <tr>
+    <td>Product 3</td>
+    <td class="price">10</td>
+    <td><input type="number" class="qty" value="2"></td>
+    <td class="total">25</td> <!-- Intentional bug, should be 20 -->
+  </tr> <tr>
+    <td>Product 4</td>
+    <td class="price">10</td>
+    <td><input type="number" class="qty" value="2"></td>
+    <td class="total">25</td> <!-- Intentional bug, should be 20 -->
+  </tr>
+</table>
+
+<p>Grand Total: <span id="grand-total">25</span></p>
+
+<script src="main.js"></script>
+</body>
+</html>
 }
