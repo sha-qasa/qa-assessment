@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products</title>
+<title>QA Demo Store - Products</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- Header -->
 <header>
   <h1>Products</h1>
   <nav>
@@ -17,21 +19,44 @@
   </nav>
 </header>
 
-<div class="product-list">
-  <!-- Repeatable Product Card -->
+<!-- Product List -->
+<section class="product-list">
+  <!-- Product Card 1 -->
   <div class="product-card">
-    <h3>Product 1</h3>
-    <p>Price: RM 10</p>
+    <h3>Product A</h3>
+    <p>Price: RM 15</p>
     <button class="expand-btn">Expand</button>
     <div class="extra-info" style="display:none;">
-      <p>Product description and details...</p>
+      <p>Product A is great for testing QA functionality.</p>
     </div>
     <button class="add-cart-btn">Add to Cart</button>
   </div>
-  <!-- Add more products as needed -->
-</div>
+
+  <!-- Product Card 2 -->
+  <div class="product-card">
+    <h3>Product B</h3>
+    <p>Price: RM 25</p>
+    <button class="expand-btn">Expand</button>
+    <div class="extra-info" style="display:none;">
+      <p>Product B has multiple features to test.</p>
+    </div>
+    <button class="add-cart-btn">Add to Cart</button>
+  </div>
+
+  <!-- Product Card 3 -->
+  <div class="product-card">
+    <h3>Product C</h3>
+    <p>Price: RM 30</p>
+    <button class="expand-btn">Expand</button>
+    <div class="extra-info" style="display:none;">
+      <p>Product C is a premium item for QA edge cases.</p>
+    </div>
+    <button class="add-cart-btn">Add to Cart</button>
+  </div>
+
+  <!-- Tambah lagi products ikut suka -->
+</section>
 
 <script src="main.js"></script>
 </body>
 </html>
-}
