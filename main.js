@@ -51,7 +51,7 @@ function loadCart() {
   let sum = 0;
 
   cart.forEach(item => {
-    let total = item.price * item.qty + 5; // intentional bug
+    let total = item.price * item.qty + 5; 
     sum += total;
     
     const row = document.createElement('tr');
