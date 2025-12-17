@@ -39,6 +39,43 @@ document.querySelectorAll('.add-cart-btn').forEach(btn => {
     alert(`${name} added to cart!`);
   });
 });
+function loadCart() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartTableBody = document.querySelector('#cart-table tbody');
+  const grandTotalElem = document.getElementById('grand-total');
+
+  cartTableBody.innerHTML = '';
+
+  if (cart.length === 0) {
+    cartTableBody.innerHTML =
+      `<tr><td colspan="5">Your cart is empty</td></tr>`;
+    if (grandTotalElem) grandTotalElem.innerText = 0;
+    return; // stop further rendering
+  }
+
+  // loop untuk render setiap item
+  cart.forEach(item => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${item.name}</td>
+      <td class="price">${item.price}</td>
+      <td>
+        <div class="qty-control">
+          <button class="minus-btn">−</button>
+          <input type="number" class="qty" value="${item.qty}" min="1">
+          <button class="plus-btn">+</button>
+        </div>
+      </td>
+      <td class="total">${item.price * item.qty}</td>
+      <td><button class="remove-btn">Remove</button></td>
+    `;
+    cartTableBody.appendChild(tr);
+  });
+
+  // calculate grand total
+  let total = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
+  if (grandTotalElem) grandTotalElem.innerText = total;
+}
 
 // ===== Cart Page =====
 const cartTableBody = document.querySelector('#cart-table tbody');
@@ -154,12 +191,50 @@ loadCheckout();
 
 // ===== Checkout Form Submit =====
 const checkoutForm = document.getElementById('checkout-form');
+
 if (checkoutForm) {
   checkoutForm.addEventListener('submit', e => {
     e.preventDefault();
-    alert('Payment processed!');
-    localStorage.removeItem('cart'); // clear cart after checkout
-    loadCheckout();
-    loadCart();
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    localStorage.setItem('lastOrder', JSON.stringify(cart));
+
+    localStorage.removeItem('cart');
+    window.location.href = 'receipt.html';
   });
 }
+const checkoutBtn = document.getElementById('checkout-btn');
+
+if (checkoutBtn) {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  if (cart.length === 0) {
+    checkoutBtn.style.pointerEvents = 'none';
+    checkoutBtn.style.opacity = '0.5';
+  }
+}
+
+// ===== Receipt Page =====
+const receiptItems = document.getElementById('receipt-items');
+
+if (receiptItems) {
+  const cart = JSON.parse(localStorage.getItem('lastOrder')) || [];
+  let subtotal = 0;
+
+  receiptItems.innerHTML = '';
+
+  cart.forEach(item => {
+    subtotal += item.price * item.qty;
+
+    const li = document.createElement('li');
+    li.innerText = `${item.name} x ${item.qty}`;
+    receiptItems.appendChild(li);
+  });
+
+  document.getElementById('r-subtotal').innerText = subtotal;
+  document.getElementById('r-tax').innerText = 0; 
+  document.getElementById('r-total').innerText = subtotal;
+
+  document.getElementById('order-id').innerText =
+    'ORD-' + Math.floor(Math.random() * 10000);
+}
+
