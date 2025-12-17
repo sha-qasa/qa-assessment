@@ -69,8 +69,36 @@ function loadCart() {
 }
 
 loadCart();
+// ===== Plus / Minus Buttons =====
+if (cartTableBody) {
+  cartTableBody.addEventListener('click', e => {
+
+    if (e.target.classList.contains('plus-btn') ||
+        e.target.classList.contains('minus-btn')) {
+
+      const row = e.target.closest('tr');
+      const name = row.querySelector('td').innerText;
+      const qtyInput = row.querySelector('.qty');
+
+      let qty = parseInt(qtyInput.value);
+      if (e.target.classList.contains('plus-btn')) qty++;
+      if (e.target.classList.contains('minus-btn') && qty > 1) qty--;
+
+      qtyInput.value = qty;
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let item = cart.find(i => i.name === name);
+      item.qty = qty;
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
+    }
+
+  });
+}
 
 // ===== Quantity & Remove Buttons =====
+
 if (cartTableBody) {
   cartTableBody.addEventListener('input', e => {
     if (e.target.classList.contains('qty')) {
