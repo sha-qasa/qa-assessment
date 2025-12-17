@@ -149,6 +149,39 @@ button {
 button:hover {
   opacity: 0.9;
 }
+.checkout-btn {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 16px auto;
+  padding: 12px;
+  background: #ff6f91;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.qty-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.qty-control button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: #ffd1dc;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.qty-control input {
+  width: 45px;
+  text-align: center;
+}
 
 
 /* ===== Expand / Extra Info ===== */
