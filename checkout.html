@@ -1,23 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QA Demo Store - Checkout</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<!-- Right Sidebar Navigation -->
-<div class="right-nav">
-  <a href="index.html">Home</a>
-  <a href="product.html">Products</a>
-  <a href="cart.html">Cart</a>
-  <a href="checkout.html">Checkout</a>
-  <a href="faq.html">FAQ</a>
-  <a href="contact.html">Contact</a>
-</div>
+
 <body>
 
-<!-- Header -->
 <header>
   <h1>Checkout</h1>
   <nav>
@@ -28,16 +19,31 @@
   </nav>
 </header>
 
-<!-- Checkout Form -->
-<section class="checkout-section">
-  <form id="checkout-form">
-    <p>Subtotal: RM <span id="subtotal">0</span></p>
-    <p>Tax (10%): RM <span id="tax">0</span> <!-- intentional bug optional --></p>
-    <p>Total: RM <span id="total">0</span></p>
+<!-- 👇 START CHECKOUT BOX -->
+<div class="checkout-box">
 
+  <p>Subtotal: RM <span id="subtotal">0</span></p>
+  <p>Tax (10%): RM <span id="tax">0</span></p>
+  <p><strong>Total: RM <span id="total">0</span></strong></p>
+
+  <form id="checkout-form">
+    <input type="text" placeholder="Full Name" required>
+    <input type="text" placeholder="Address" required>
     <button type="submit">Pay Now</button>
   </form>
-</section>
+
+</div>
+<!-- 👆 END CHECKOUT BOX -->
+
+<!-- Right Navigation -->
+<div class="right-nav">
+  <a href="index.html">Home</a>
+  <a href="product.html">Products</a>
+  <a href="cart.html">Cart</a>
+  <a href="checkout.html">Checkout</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+</div>
 
 <script src="main.js"></script>
 </body>
