@@ -168,26 +168,30 @@ const subtotalElem = document.getElementById('subtotal');
 const taxElem = document.getElementById('tax');
 const totalElem = document.getElementById('total');
 
+const ACTUAL_TAX_RATE = 0.05; // ❗ actual calculation = 5%
+
 function loadCheckout() {
   if (!subtotalElem || !taxElem || !totalElem) return;
 
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
   let subtotal = 0;
 
   cart.forEach(item => {
     subtotal += item.price * item.qty;
   });
 
-  subtotalElem.innerText = subtotal;
+  subtotalElem.innerText = subtotal.toFixed(2);
 
-  let tax = 0; 
-  taxElem.innerText = tax;
+  // ❗ Intentional bug: UI implies 10% but calculation uses 5%
+  const tax = subtotal * ACTUAL_TAX_RATE;
+  taxElem.innerText = tax.toFixed(2);
 
-  let total = subtotal + tax;
-  totalElem.innerText = total;
+  const total = subtotal + tax;
+  totalElem.innerText = total.toFixed(2);
 }
 
 loadCheckout();
+
 
 // ===== Checkout Form Submit =====
 const checkoutForm = document.getElementById('checkout-form');
