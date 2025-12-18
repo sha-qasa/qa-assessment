@@ -95,7 +95,14 @@ function loadCart() {
     row.innerHTML = `
       <td>${item.name}</td>
       <td class="price">${item.price}</td>
-      <td><input type="number" class="qty" value="${item.qty}" min="1"></td>
+      <td>
+        <div class="qty-control">
+          <button class="minus-btn">−</button>
+          <input type="number" class="qty" value="${item.qty}" min="1">
+          <button class="plus-btn">+</button>
+        </div>
+      </td>
+
       <td class="total">${total}</td>
       <td><button class="remove-btn">Remove</button></td>
     `;
